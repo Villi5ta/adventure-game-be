@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import scoreRoutes from "./src/routes/score.js";
+import encounterRoutes from "./src/routes/encounter.js";
 import "dotenv/config";
 const app = express();
 
@@ -14,6 +15,7 @@ mongoose
   .catch((err) => console.log("Error ocurred", err));
 
 app.use(scoreRoutes);
+app.use(encounterRoutes);
 
 app.use((req, res) => {
   return res.status(404).json({ message: "Endpoint not found" });

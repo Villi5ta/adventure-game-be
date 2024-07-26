@@ -20,7 +20,7 @@ export const ADD_GAME_SCORE = async (req, res) => {
 
 export const GET_GAME_SCORES = async (req, res) => {
   try {
-    const score = scoreModel.find({});
+    const score = scoreModel.find();
 
     const response = await score;
 

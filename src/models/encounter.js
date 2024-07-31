@@ -10,7 +10,7 @@ const EncounterSchema = new mongoose.Schema({
       healthChange: Number,
       upgradePointsReward: Number,
       moneyReward: Number,
-      nextEncounterId: String,
+      nextEncounterId: Number,
     },
   ],
 });

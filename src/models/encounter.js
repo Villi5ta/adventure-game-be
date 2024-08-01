@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const EncounterSchema = new mongoose.Schema({
-  id: String,
+  id: Number,
   description: String,
   choices: [
     {

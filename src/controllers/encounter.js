@@ -30,15 +30,15 @@ export const ADD_ENCOUNTER = async (req, res) => {
 
 export const GET_ENCOUNTER_BY_ID = async (req, res) => {
   try {
-    const encounters = await encounterModel.find();
-    const encounter = encounters.filter((e) => e.id === req.params.id);
+    const encounter = await encounterModel.findOne({ id: req.params.id });
 
-    if (encounter.length === 0) {
+    if (!encounter) {
       return res.status(404).json({ message: "Encounter not found" });
     }
 
-    return res.json({ encounter: encounter });
+    return res.json({ encounter });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return res.status(500).json({ message: "Internal server error" });
   }
 };
